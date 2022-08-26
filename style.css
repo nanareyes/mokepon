@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&family=Roboto&display=swap');
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background-image: url(./assets/1060624.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+#seleccionar-mascota{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.titulo{
+  font-family: 'Fredoka One', cursive;
+  color: #2C3333;
+  font-size: 56px;
+}
+.subtitulo{
+  font-size: 32px;
+  color: #2C3333;
+  font-weight: 400;
+}
+.tarjetas{
+  display: flex;
+  gap: 10px;
+}
+.tarjeta-de-mokepon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  padding: 10px;
+  background: #395B64;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: #E7F6F2;
+}
+.tarjeta-de-mokepon img{
+  width: 100px;
+}
+.tarjeta-de-mokepon:hover{
+  width: 210px;
+  height: 160px;
+}
+input{
+  display: none;
+}
+#btn_mascotas{
+  background-color: #395B64;
+  width: 120px;
+  height: 50px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+  border: 1px solid #2C3333;
+  box-sizing: border-box;
+  color: #E7F6F2;
+  font-family: 'Poppins', sans-serif;
+}
