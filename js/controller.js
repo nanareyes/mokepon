@@ -3,6 +3,8 @@ let ataqueJugador;
 let ataqueDelEnemigo;
 let vidasdelJugador = 3;
 let vidasdelEnemigo = 3;
+let imagenJugador = new Image();
+let imagenEnemigo = new Image();
 
 function iniciarJuego(){
 
@@ -22,11 +24,13 @@ function iniciarJuego(){
   btnTierra.addEventListener("click",ataqueTierra);
   let btnReiniciar = document.getElementById("reiniciar");
   btnReiniciar.addEventListener("click", reiniciarJuego)
+  let jugador = document.getElementById("jugador");
+  let enemigo = document.getElementById("enemigo")
 }
 
 function selecionarMascotaJugador(){
   let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque")
-  sectionSeleccionarAtaque.style.display="block";
+  sectionSeleccionarAtaque.style.display="flex";
   let sectionSeleccionarMascota = document.getElementById("seleccionar-mascota")
   sectionSeleccionarMascota.style.display="none";
 
@@ -34,13 +38,20 @@ function selecionarMascotaJugador(){
   let inputCapipego = document.getElementById("capipepo");
   let inputRatigueya = document.getElementById("ratigueya");
   let spanMascotaJugador = document.getElementById("mascota_jugador");
+  let imgMascotaJugador = document.getElementById("imagen-jugador").appendChild(imagenJugador);
 
   if(inputHipodoge.checked){
     spanMascotaJugador.innerHTML = "Hipodoge";
+    imgMascotaJugador.src = "/mokepon/assets/mokepons_mokepon_hipodoge_attack.png"
+    imgMascotaJugador.style.display="flex"
   } else if(inputCapipego.checked){
     spanMascotaJugador.innerHTML = "Capipepo";
+    imgMascotaJugador.src = "/mokepon/assets/mokepons_mokepon_capipepo_attack.png"
+    imgMascotaJugador.style.display="flex"
   } else if(inputRatigueya.checked){
     spanMascotaJugador.innerHTML = "Ratigueya";
+    imgMascotaJugador.src = "/mokepon/assets/mokepons_mokepon_ratigueya_attack.png"
+    imgMascotaJugador.style.display="flex"
   } else {
     alert("Selecciona una mascota");
   }
@@ -50,12 +61,20 @@ function selecionarMascotaJugador(){
 function seleccionarMascotaEnemigo(){
   let spanMascotaEnemigo = document.getElementById("mascota_enemigo");
   let mascotaAleatoria = aleatorio(1,3);
+
+  let imgMascotaEnemigo = document.getElementById("imagen-enemigo").appendChild(imagenEnemigo)
   if(mascotaAleatoria == 1){
     spanMascotaEnemigo.innerHTML = "Hipodoge";
+    imgMascotaEnemigo.src = "/mokepon/assets/mokepons_mokepon_hipodoge_attack.png"
+    imgMascotaEnemigo.style.display="flex"
   } else if (mascotaAleatoria == 2){
     spanMascotaEnemigo.innerHTML = "Capipepo";
+    imgMascotaEnemigo.src = "/mokepon/assets/mokepons_mokepon_capipepo_attack.png"
+    imgMascotaEnemigo.style.display="flex"
   } else {
     spanMascotaEnemigo.innerHTML = "Ratigueya";
+    imgMascotaEnemigo.src = "/mokepon/assets/mokepons_mokepon_ratigueya_attack.png"
+    imgMascotaEnemigo.style.display="flex"
   }
 }
 
@@ -105,27 +124,33 @@ function combate(){
 
 function revisarVidas(){
   if(vidasdelEnemigo == 0){
-    crearMensajeFinal("FELICITACIONES, GANASTE 🥳🥳🥳🥳🥳🥳 ")
+    crearMensajeFinal("FELICITACIONES, GANASTE 🥳🥳 ")
   } else if(vidasdelJugador == 0){
-    crearMensajeFinal("LO SENTIMOS, PERDISTE 😔😔😔😔")
+    crearMensajeFinal("LO SENTIMOS, PERDISTE 😔😔")
   }
 }
 
 function crearMensaje(mensajeCombate){
-  let mensaje = document.getElementById('mensajes')
-  let parrafo = document.createElement("p");
-  parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ". La mascota del enemigo atacó con " + ataqueDelEnemigo + ". " + mensajeCombate
-  mensaje.appendChild(parrafo);
+  let mensaje = document.getElementById('resultado');
+  let ataqueDelJugador = document.getElementById('ataque-jugador');
+  let ataqueEnemigo = document.getElementById('ataque-enemigo');
+  let nuevoAtaqueJugador = document.createElement("p");
+  let nuevoAtaqueEnemigo = document.createElement("p");
+
+  mensaje.innerHTML = mensajeCombate;
+  nuevoAtaqueJugador.innerHTML = ataqueJugador;
+  nuevoAtaqueEnemigo.innerHTML = ataqueDelEnemigo;
+
+  ataqueDelJugador.appendChild(nuevoAtaqueJugador);
+  ataqueEnemigo.appendChild(nuevoAtaqueEnemigo);
 }
 
 function crearMensajeFinal(resultadoFinal){
   let sectionReiniciarJuejo = document.getElementById("reiniciar")
   sectionReiniciarJuejo.style.display="block";
 
-  let mensaje = document.getElementById('mensajes')
-  let parrafo = document.createElement("p");
-  parrafo.innerHTML = resultadoFinal
-  mensaje.appendChild(parrafo);
+  let mensaje = document.getElementById('resultado')
+  mensaje.innerHTML = resultadoFinal
 
   let btnFuego = document.getElementById('fuego');
   btnFuego.disabled = true;

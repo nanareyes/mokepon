@@ -1,8 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&family=Roboto&display=swap');
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+html{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Fredoka One', cursive;
+  color: #2C3333;
   background-image: url(./assets/1060624.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -16,50 +23,129 @@ body{
   align-items: center;
 }
 .titulo{
-  font-family: 'Fredoka One', cursive;
-  color: #2C3333;
+  font-family: 'Pokemon Solid', sans-serif;
+  line-height: 65px;
+  letter-spacing: 7px;
+  color: #61481C;
   font-size: 56px;
 }
 .subtitulo{
   font-size: 32px;
   color: #2C3333;
-  font-weight: 400;
 }
 .tarjetas{
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 .tarjeta-de-mokepon{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 150px;
+  width: 260px;
+  height: 300px;
   padding: 10px;
-  background: #395B64;
+  background: linear-gradient(75deg, #54a7c7, #80c05d);
+  box-shadow: 2px 2px 1px 1px #2C3333;
   box-sizing: border-box;
   border-radius: 20px;
-  color: #E7F6F2;
+  color: #2C3333;
 }
 .tarjeta-de-mokepon img{
-  width: 100px;
-}
-.tarjeta-de-mokepon:hover{
-  width: 210px;
-  height: 160px;
+  width: 160px;
 }
 input{
   display: none;
 }
+input:checked + label{
+  width: 280px;
+  box-shadow: 10px 10px 40px 10px #2C3333;
+}
 #btn_mascotas{
-  background-color: #395B64;
-  width: 120px;
+  background-color:#6bb495;
+  width: 220px;
   height: 50px;
   padding: 10px;
   margin: 20px;
   border-radius: 20px;
-  border: 1px solid #2C3333;
+  border: 1px solid #7abc6d;
+  box-shadow: 2px 2px 2px 1px #2C3333;
   box-sizing: border-box;
-  color: #E7F6F2;
-  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #2C3333;font-family: 'Fredoka One', cursive;
+}
+#seleccionar-ataque{
+  flex-direction: column;
+  align-items: center;
+}
+#contenedor-jugadas{
+  display: grid;
+  grid-template-columns: 400px 200px 400px;
+}
+.contenedor-ataque{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+}
+.btn-ataque{
+  background:#6bb495;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 1px #2C3333;
+  width: 150px;
+  color: #2C3333;
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#mensajes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #54a7c7;
+  width: 280px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 1px #2C3333;
+}
+#boton-reiniciar{
+  border: none;
+  background: transparent;
+  color: #2C3333;
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 1px;
+  border-bottom-style: double;
+  border-top-style: double;
+}
+.ataques{
+  display: grid;
+  grid-template-columns: 100px 100px;
+}
+.info-jugador, .info-enemigo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background:linear-gradient(75deg, #54a7c7, #80c05d );
+  opacity: 70%;
+}
+#imagen-enemigo img, #imagen-jugador img{
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 768px){
+  .tarjeta-de-mokepon{
+    width: 220px;
+  }
+  .tarjeta-de-mokepon img{
+    width: 130px;
+  }
+}
+@media (max-width: 425px){
+  .tarjetas{
+    flex-direction: column;
+  }
 }
